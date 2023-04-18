@@ -15,7 +15,7 @@ describe('Rank a Royal Flush', function() {
  * test
  */
 describe('Rank a Pair', function() {
-  it.skip('Return one pair when hand given', function() {
+  it('Return one pair when hand given', function() {
     var hand = new PokerHand('Ah As 10c 7d 6s');
 
     assert.equal(hand.getRank(), 'One Pair');

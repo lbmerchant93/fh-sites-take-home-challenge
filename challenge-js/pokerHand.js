@@ -38,6 +38,25 @@ class PokerHand {
         return Number(card.value);
       }
     }).sort((a, b) => a - b)
+
+    // Should create an object for value instances occurrence
+    // Methods to use:
+    // .reduce() to create an objects with keys of card value and values of number of instances that value appears in the hand
+    this.valueInstances = this.handValues.reduce((accumulator, value) => {
+      if (!accumulator[value]) {
+        accumulator[value] = 1;
+      } else {
+        accumulator[value] += 1;
+      }
+      return accumulator;
+    }, {})
+  }
+
+  // Create method that checks if the hand has any duplicate values
+  // Methods to use:
+  // .some() to check if any of the values of instances is 2 or more
+  isDuplicates() {
+    return Object.values(this.valueInstances).some(valueInstance => valueInstance >= 2);
   }
 
   // Create method that checks if the hand is a straight
@@ -66,9 +85,13 @@ class PokerHand {
 
   getRank() {
     // Implement poker hand ranking
-    // Test 1: call method to check if the hand is a Royal Flush, if true return 'Royal Flush' hand must contain 10, J, Q, K, A of same suit
-    if (this.isStraight() && this.isFlush()) {
-      return this.handValues[4] === 14 ? 'Royal Flush' : "Straight Flush";
+    
+    if (this.isDuplicates()) {
+      // Test 2: call method to check if the hand is One Pair, if true return 'One Pair'
+      return 'One Pair'
+    } else if (this.isStraight() && this.isFlush()) {
+      // Test 1: call method to check if the hand is a Royal Flush, if true return 'Royal Flush' hand must contain 10, J, Q, K, A of same suit
+      return this.handValues[4] === 14 ? 'Royal Flush' : 'Straight Flush';
     } 
   }
 }
