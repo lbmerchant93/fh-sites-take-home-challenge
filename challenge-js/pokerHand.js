@@ -99,7 +99,9 @@ class PokerHand {
     } else if (this.isStraight() && this.isFlush()) {
       // Test 1: call methods to check if the hand is a Royal Flush, if true return 'Royal Flush' hand must contain 10, J, Q, K, A of same suit
       return this.handValues[4] === 14 ? 'Royal Flush' : 'Straight Flush';
-    } 
+    } else if (this.isFlush()) {
+      return 'Flush'
+    }
   }
 }
 
