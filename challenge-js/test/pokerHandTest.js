@@ -26,7 +26,7 @@ describe('Rank a Pair', function() {
  * test
  */
 describe('Rank Two Pair', function() {
-  it.skip('Return two pair when hand given', function() {
+  it('Return two pair when hand given', function() {
     var hand = new PokerHand('Kh Kc 3s 3h 2d');
 
     assert.equal(hand.getRank(), 'Two Pair');

@@ -86,11 +86,18 @@ class PokerHand {
   getRank() {
     // Implement poker hand ranking
     
-    if (this.isDuplicates()) {
+    if (this.isDuplicates() && Object.values(this.valueInstances).length === 4) {
       // Test 2: call method to check if the hand is One Pair, if true return 'One Pair'
+      // Object.values(valueInstance) to create array of value instance if length is 4 -> One Pair
       return 'One Pair'
+    } else if (this.isDuplicates() && Object.values(this.valueInstances).length === 3) {
+      // Test 3: call method to check if the hand has Two Pair, if true return 'Two Pair'
+      // If length of Object.values(valueInstance) is 3 -> Two Pair or Three of a Kind
+      // Methods to use:
+      // .some() to check if any of the values of instances is 3 -> Three of a Kind, otherwise has to be Two Pair
+      return Object.values(this.valueInstances).some(valueInstance => valueInstance === 3) ? 'Three of a Kind' : 'Two Pair';
     } else if (this.isStraight() && this.isFlush()) {
-      // Test 1: call method to check if the hand is a Royal Flush, if true return 'Royal Flush' hand must contain 10, J, Q, K, A of same suit
+      // Test 1: call methods to check if the hand is a Royal Flush, if true return 'Royal Flush' hand must contain 10, J, Q, K, A of same suit
       return this.handValues[4] === 14 ? 'Royal Flush' : 'Straight Flush';
     } 
   }
