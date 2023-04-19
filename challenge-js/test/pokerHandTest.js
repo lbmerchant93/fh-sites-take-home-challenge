@@ -54,6 +54,14 @@ describe('Rank A Straight Flush', function() {
   });
 });
 
+describe('Rank A Straight Flush With Ace Low', function() {
+  var hand = new PokerHand('Ah 3h 2h 5h 4h');
+
+  it('Return straight flush when hand given', function() {
+    assert.equal(hand.getRank(), 'Straight Flush');
+  });
+});
+
 describe('Rank A Four of a Kind', function() {
   var hand = new PokerHand('9s 9c 7h 9h 9d');
 
