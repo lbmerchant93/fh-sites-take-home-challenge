@@ -98,6 +98,7 @@ class PokerHand {
       return Object.values(this.valueInstances).some(valueInstance => valueInstance === 3) ? 'Three of a Kind' : 'Two Pair';
     } else if (this.isDuplicates() && Object.values(this.valueInstances).length === 2) {
       // Test 6: call method to check if the hand has Four of a Kind, if true return 'Four of a Kind'
+      // Test 7: if not Four of a Kind, has to be Full House return 'Full House'
       // If length of Object.values(valueInstance) is 2 -> Four of a Kind or Full House
       // .some() to check if any of the values of instances is 4 -> Four of a Kind, otherwise has to be Full House
       return Object.values(this.valueInstances).some(valueInstance => valueInstance === 4) ? 'Four of a Kind' : 'Full House';
@@ -108,6 +109,9 @@ class PokerHand {
     } else if (this.isFlush()) {
       // Test 4: call method to check if the hand has Flush, if true return 'Flush'
       return 'Flush'
+    } else if (this.isStraight()) {
+      // Test 8: call method to check if the hand has Straight, if true return 'Straight'
+      return 'Straight'
     }
   }
 }

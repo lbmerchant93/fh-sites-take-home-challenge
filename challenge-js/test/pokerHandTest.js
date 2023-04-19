@@ -65,7 +65,7 @@ describe('Rank A Four of a Kind', function() {
 describe('Rank A Full House', function() {
   var hand = new PokerHand('2h 4d 2d 4s 2s');
 
-  it.skip('Return full house when hand given', function() {
+  it('Return full house when hand given', function() {
     assert.equal(hand.getRank(), 'Full House');
   });
 });
@@ -73,7 +73,7 @@ describe('Rank A Full House', function() {
 describe('Rank A Straight', function() {
   var hand = new PokerHand('6s 8d 10c 9c 7h');
 
-  it.skip('Return straight when hand given', function() {
+  it('Return straight when hand given', function() {
     assert.equal(hand.getRank(), 'Straight');
   });
 });
