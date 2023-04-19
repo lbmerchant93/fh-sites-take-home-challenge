@@ -96,10 +96,17 @@ class PokerHand {
       // Methods to use:
       // .some() to check if any of the values of instances is 3 -> Three of a Kind, otherwise has to be Two Pair
       return Object.values(this.valueInstances).some(valueInstance => valueInstance === 3) ? 'Three of a Kind' : 'Two Pair';
+    } else if (this.isDuplicates() && Object.values(this.valueInstances).length === 2) {
+      // Test 6: call method to check if the hand has Four of a Kind, if true return 'Four of a Kind'
+      // If length of Object.values(valueInstance) is 2 -> Four of a Kind or Full House
+      // .some() to check if any of the values of instances is 4 -> Four of a Kind, otherwise has to be Full House
+      return Object.values(this.valueInstances).some(valueInstance => valueInstance === 4) ? 'Four of a Kind' : 'Full House';
     } else if (this.isStraight() && this.isFlush()) {
       // Test 1: call methods to check if the hand is a Royal Flush, if true return 'Royal Flush' hand must contain 10, J, Q, K, A of same suit
+      // Test 5: if not Royal Flush has to be Straight Flush, so return 'Straight Flush'
       return this.handValues[4] === 14 ? 'Royal Flush' : 'Straight Flush';
     } else if (this.isFlush()) {
+      // Test 4: call method to check if the hand has Flush, if true return 'Flush'
       return 'Flush'
     }
   }
