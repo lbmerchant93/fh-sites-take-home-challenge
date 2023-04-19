@@ -93,6 +93,7 @@ class PokerHand {
       return 'One Pair'
     } else if (this.isDuplicates() && Object.values(this.valueInstances).length === 3) {
       // Test 3: call method to check if the hand has Two Pair, if true return 'Two Pair'
+      // Test 10: if not Two Pair, has to be Three of a Kind return 'Three of a Kind'
       // If length of Object.values(valueInstance) is 3 -> Two Pair or Three of a Kind
       // Methods to use:
       // .some() to check if any of the values of instances is 3 -> Three of a Kind, otherwise has to be Two Pair
@@ -113,6 +114,9 @@ class PokerHand {
     } else if (this.isStraight()) {
       // Test 8: call method to check if the hand has Straight, if true return 'Straight'
       return 'Straight'
+    } else {
+      // Test 11: if no conditions met then has to play hand a High Card, return 'High Card'
+      return 'High Card'
     }
   }
 }

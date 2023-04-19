@@ -89,7 +89,7 @@ describe('Rank A Straight With Ace Low', function() {
 describe('Rank A Three of a Kind', function() {
   var hand = new PokerHand('As 8c Ac 10h Ad');
 
-  it.skip('Return three of a kind when hand given', function() {
+  it('Return three of a kind when hand given', function() {
     assert.equal(hand.getRank(), 'Three of a Kind');
   });
 });
@@ -97,7 +97,7 @@ describe('Rank A Three of a Kind', function() {
 describe('Rank A High Card', function() {
   var hand = new PokerHand('10s 6c 3d Ks Qd');
 
-  it.skip('Return high card when hand given', function() {
+  it('Return high card when hand given', function() {
     assert.equal(hand.getRank(), 'High Card');
   });
 });
