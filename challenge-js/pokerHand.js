@@ -62,7 +62,8 @@ class PokerHand {
   // Create method that checks if the hand is a straight
   // If it is a straight then the value difference from the first card to last card will be 4
   isStraight() {
-    return this.handValues[4] - this.handValues[0] === 4;
+    // Test 9: add conditional to check if Ace Low Straight
+    return this.handValues[4] - this.handValues[0] === 4 || (this.handValues[3] - this.handValues[0] === 3 && this.handValues[4] === 14);
   }
 
   // Create method that checks if the hand is a Flush - cards are all of the same suit

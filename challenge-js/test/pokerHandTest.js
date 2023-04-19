@@ -81,7 +81,7 @@ describe('Rank A Straight', function() {
 describe('Rank A Straight With Ace Low', function() {
   var hand = new PokerHand('4h 2d Ac 3c 5d');
 
-  it.skip('Return straight when hand given with Ace low', function() {
+  it('Return straight when hand given with Ace low', function() {
     assert.equal(hand.getRank(), 'Straight');
   });
 });
